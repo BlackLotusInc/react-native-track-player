@@ -368,6 +368,8 @@ public class RNTrackPlayer: RCTEventEmitter {
     
     @objc(skipToNext:rejecter:)
     public func skipToNext(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+        self.sendEvent(withName: "remote-next", body: nil)
+
         print("Skipping to next track")
         do {
             try player.next()
